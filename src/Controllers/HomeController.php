@@ -3,7 +3,8 @@ namespace App\Controllers;
 
 class HomeController {
     public function index(){
-        echo "Welcome to home page";
+        view('index');
+        //require __DIR__ . '\\..\\..\\views\\index.php';
     }
 
     public function about(){

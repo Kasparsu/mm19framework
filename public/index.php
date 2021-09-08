@@ -7,6 +7,8 @@ spl_autoload_register(function ($class) {
     require_once $path;
 });
 
+
+require __DIR__ . '\\..\\helpers.php';
 require __DIR__ . '\\..\\routes.php';
 
 $router = new \App\Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
