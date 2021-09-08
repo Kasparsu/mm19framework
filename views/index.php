@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Home page!</h1>
+    <h2>This is website of <?php echo $name; ?></h2>
 </body>
 </html>

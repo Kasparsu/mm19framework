@@ -3,7 +3,11 @@ namespace App\Controllers;
 
 class HomeController {
     public function index(){
-        view('index');
+
+        var_dump($_GET);
+        die();
+        $name = "Kaspar";
+        view('index', compact('name'));
         //require __DIR__ . '\\..\\..\\views\\index.php';
     }
 
