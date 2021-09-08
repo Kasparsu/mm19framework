@@ -7,8 +7,8 @@ spl_autoload_register(function ($class) {
     require_once $path;
 });
 
-use \App\Birds\Hawk as Bird;
+require __DIR__ . '\\..\\routes.php';
 
-$animal = new \App\Animal();
-$animal2 = new \App\Cat();
-$hawk = new Bird();
+$router = new Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
+$match = $router->match();
+call_user_func($match['action']);
