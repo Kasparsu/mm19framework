@@ -9,6 +9,12 @@ spl_autoload_register(function ($class) {
 
 require __DIR__ . '\\..\\routes.php';
 
-$router = new Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
+$router = new \App\Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 $match = $router->match();
-call_user_func($match['action']);
+if(isset($match['action'])) {
+    $controller = new $match['action'][0]();
+    $controller->{$match['action'][1]}();
+
+} else {
+    echo "404";
+}
