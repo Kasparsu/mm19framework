@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>Home page!</h1>
-    <h2>This is website of <?php echo $name; ?></h2>
+    <h2>This is website of <?=$name?></h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="submit">
+    </form>
+    <form action="/login" method="POST">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <input type="submit">
+    </form>
 </body>
 </html>

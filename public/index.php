@@ -1,11 +1,14 @@
 <?php
 
+session_start();
+
 spl_autoload_register(function ($class) {
     $parts = explode('\\', $class);
     unset($parts[0]);
     $path = __DIR__ . '\\..\\src\\' . implode('\\', $parts) . '.php';
     require_once $path;
 });
+
 
 
 require __DIR__ . '\\..\\helpers.php';
