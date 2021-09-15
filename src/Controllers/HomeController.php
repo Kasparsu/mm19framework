@@ -3,10 +3,14 @@ namespace App\Controllers;
 
 class HomeController {
     public function index(){
-        var_dump($_SESSION);
-        $name = "Kaspar";
-        view('index', compact('name'));
-        //require __DIR__ . '\\..\\..\\views\\index.php';
+        try {
+            $conn = new \PDO("sqlite:" . __DIR__ . '/../../db.sqlite');
+            // set the PDO error mode to exception
+            $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            echo "Connected successfully";
+        } catch(\PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
     }
 
     public function upload(){
