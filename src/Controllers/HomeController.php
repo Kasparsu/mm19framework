@@ -3,12 +3,16 @@
 namespace App\Controllers;
 
 use App\DB;
+use GuzzleHttp\Client;
+
 
 class HomeController
 {
     public function index() {
-        $db = new DB("sqlite:" . __DIR__ . '/../../db.sqlite');
-        var_dump($db->all('posts'));
+       $guzzle = new Client(['verify' => false]);
+       $response = $guzzle->request('GET', 'https://rickandmortyapi.com/api/character/2');
+       $value = json_decode($response->getBody());
+       var_dump($value);
     }
 
     public function upload() {
